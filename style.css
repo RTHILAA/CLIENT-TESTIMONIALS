@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Page loader animation */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f5f7fa 0%, #ddd 100%);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #ddd 100%);
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 90%;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.img-container {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(45deg, red, #ff7b7b);
+    margin-bottom: 10px;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    will-change: transform;
+}
+
+#title {
+    text-align: center; 
+    font-size: 36px; 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: slideDown 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slideDown {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.border {
+    width: 150px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, red, transparent);
+    margin-bottom: 40px;
+    position: relative;
+    transform: scaleX(0);
+    transform-origin: center;
+    animation: scaleIn 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes scaleIn {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.border::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) rotate(45deg) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) rotate(45deg) scale(1.2); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) rotate(45deg) scale(1); opacity: 1; }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    background-color: white;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-style: preserve-3d;
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: transform, opacity, box-shadow;
+}
+
+.card:nth-child(1) {
+    animation: cardFadeIn 0.6s ease-out 0.8s forwards;
+}
+
+.card:nth-child(2) {
+    animation: cardFadeIn 0.6s ease-out 1s forwards;
+}
+
+.card:nth-child(3) {
+    animation: cardFadeIn 0.6s ease-out 1.2s forwards;
+}
+
+@keyframes cardFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03) rotateY(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .img-container {
+    transform: rotate(360deg);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.card:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.05);
+}
+
+p {
+    line-height: 1.5;
+    font-size: 14px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.card:hover p {
+    color: #333;
+}
+
+.card h3 {
+    font-size: 24px;
+    color: #333;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.card h3::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background-color: red;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover h3::after {
+    width: 80px;
+    background-color: #ff7b7b;
+}
+
+.stars {
+    color: #ffcc00;
+    font-size: 20px;
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+    display: flex;
+    gap: 3px;
+}
+
+.stars i {
+    transition: transform 0.3s ease, color 0.3s ease;
+    will-change: transform;
+}
+
+.stars i:hover {
+    transform: scale(1.3);
+    color: #ff9900;
+}
+
+/* Reduced motion media query */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .card {
+        opacity: 1;
+        transform: none !important;
+    }
+    
+    .img-container, img {
+        transition: none !important;
+    }
+}
+
+/* Media Queries */
+@media (min-width: 950px) and (max-width: 1150px) {
+    .content {
+        gap: 20px;
+    }
+    .card {
+        min-width: 220px;
+        padding: 20px;
+    }
+    #title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 950px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .card {
+        width: 80%;
+        max-width: 400px;
+    }
+    #title {
+        font-size: 28px;
+    }
+    .card:nth-child(1), .card:nth-child(3) {
+        animation-name: cardFadeIn !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        width: 100%;
+        gap: 25px;
+    }
+    .card {
+        width: 95%;
+        padding: 20px;
+    }
+    #title {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+    .border {
+        width: 100px;
+    }
+    .img-container {
+        width: 90px;
+        height: 90px;
+    }
+    .card h3 {
+        font-size: 20px;
+    }
+    .stars {
+        font-size: 18px;
+    }
+}
