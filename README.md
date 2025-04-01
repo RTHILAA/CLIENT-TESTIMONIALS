@@ -14,22 +14,22 @@ We would appreciate it if you decide to use this project. Please include credit 
 ### Responsive Design
 - Adapts to all screen sizes from mobile to desktop
 
-#### Performance Optimizations
+### Performance Optimizations
 - Preloading critical resources
 - Lazy loading for images
 - Will-change hints for animations
 
-#### Animations
+### Animations
 - Staggered card entrance animations
 - Interactive hover effects
 - Loading transition
 
-#### Accessibility
+### Accessibility
 - Reduced motion support
 - ARIA labels for star ratings
 - Semantic HTML structure
 
-### Technologies Used :
+## Technologies Used :
 
 - **HTML5**
 - **CSS3** (with animations and transitions)
@@ -37,29 +37,32 @@ We would appreciate it if you decide to use this project. Please include credit 
 - **Animate.css** (for entrance animations)
 - **Google Fonts** (Roboto)
 
-### Installation :
+## Installation :
 
 No installation required - simply open `index.html` in any modern web browser.
 
-### Customization :
+## Customization :
 
 To customize the testimonials:
+
 - Replace images in the `IMG/` folder (maintain 1:1 aspect ratio)
 - Update the names, ratings, and quotes in `index.html`
 - Modify colors and animations in `style.css`
 
-### Performance Considerations :
+## Performance Considerations :
 
 The project includes several performance optimizations:
+
 - Preconnect to CDN
 - Preload critical CSS and hero images
 - Lazy loading for non-critical images
 - `Will-change` property for animated elements
 - Reduced motion media query
 
-### Browser Support :
+## Browser Support :
 
 The project supports all modern browsers including:
+
 - Chrome
 - Firefox
 - Safari
