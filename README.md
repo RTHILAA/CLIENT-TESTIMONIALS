@@ -11,7 +11,7 @@ We would appreciate it if you decide to use this project. Please include credit 
 
 ## Features :
 
-#### Responsive Design
+### Responsive Design
 - Adapts to all screen sizes from mobile to desktop
 
 #### Performance Optimizations
